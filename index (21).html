@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jennifer & Junior — May 22, 2026</title>
+<link rel="preload" as="image" href="1.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+/* ═══════════════════════════════════════════════
+   ROOT & BASE
+═══════════════════════════════════════════════ */
+:root {
+  --olive:       #5c6e3a;
+  --olive-dk:    #3b4724;
+  --olive-md:    #7a8f4e;
+  --olive-lt:    #afc17a;
+  --olive-pale:  #d6e4b0;
+  --champ:       #f2e2c0;
+  --champ-dk:    #c9a96e;
+  --champ-md:    #dfc896;
+  --cream:       #fdf7ec;
+  --cream-dk:    #f5edd8;
+  --gray:        #7a7a7a;
+  --gray-lt:     #b8b8b8;
+  --gray-dk:     #3e3e3e;
+  --rose:        #c4857a;
+  --rose-lt:     #e8b4a8;
+  --blush:       #f0d5cc;
+  --gold:        #b8962e;
+  --gold-lt:     #d4b860;
+  --shadow:      rgba(59,71,36,0.18);
+  --dark:        #050505;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  background:var(--cream);
+  color:var(--gray-dk);
+  font-family:'EB Garamond',Georgia,serif;
+  overflow-x:hidden;
+  cursor:default;
+}
+
+/* ═══════════════════════════════════════════════
+   MUSIC PLAYER
+═══════════════════════════════════════════════ */
+#music-player{
+  position:fixed;bottom:28px;right:28px;z-index:9999;
+  display:flex;align-items:center;gap:12px;
+  background:linear-gradient(135deg,var(--olive-dk),var(--olive));
+  border:1.5px solid var(--champ-dk);
+  border-radius:60px;
+  padding:11px 20px;
+  box-shadow:0 8px 32px rgba(59,71,36,0.4),inset 0 1px 0 rgba(255,255,255,0.1);
+  animation:slideUp 1s ease 1.5s both;
+}
+@keyframes slideUp{from{transform:translateY(80px);opacity:0}to{transform:translateY(0);opacity:1}}
+#music-player .song-name{
+  font-family:'EB Garamond',serif;font-size:11.5px;
+  color:var(--champ);letter-spacing:.06em;
+  white-space:nowrap;font-style:italic;
+}
+#music-player button{
+  background:none;border:none;cursor:pointer;
+  color:var(--champ);font-size:16px;line-height:1;
+  transition:transform .2s;
+}
+#music-player button:hover{transform:scale(1.2)}
+.eq-bars{display:flex;align-items:flex-end;gap:2px;height:14px}
+.eq-bars span{
+  display:block;width:3px;border-radius:2px;
+  background:var(--champ-dk);
+  animation:eqPulse .7s ease-in-out infinite alternate;
+}
+.eq-bars span:nth-child(1){animation-delay:.0s}
+.eq-bars span:nth-child(2){animation-delay:.15s}
+.eq-bars span:nth-child(3){animation-delay:.3s}
+.eq-bars span:nth-child(4){animation-delay:.1s}
+.eq-bars span:nth-child(5){animation-delay:.22s}
+.eq-bars.paused span{animation-play-state:paused}
+@keyframes eqPulse{from{transform:scaleY(.3)}to{transform:scaleY(1)}}
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:0 32px;
+  height:64px;
+  display:flex;justify-content:center;align-items:center;gap:0;
+  background:rgba(253,247,236,.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(180,150,80,.25);
+  animation:navDrop .9s ease both;
+}
+@keyframes navDrop{from{transform:translateY(-100%)}to{transform:translateY(0)}}
+.nav-links{display:flex;align-items:center;gap:0}
+.nav-links a,.nav-links button{
+  font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:.22em;
+  color:var(--olive-dk);text-decoration:none;text-transform:uppercase;
+  padding:0 18px;
+  border:none;background:none;cursor:pointer;
+  transition:color .3s;
+}
+.nav-links a:hover,.nav-links button:hover{color:var(--gold)}
+.nav-floral-sep{
+  color:var(--olive-lt);font-size:14px;
+  padding:0 4px;line-height:1;
+}
+.nav-center-monogram{
+  font-family:'Great Vibes',cursive;font-size:32px;
+  color:var(--olive);padding:0 24px;line-height:1;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+#hero{
+  min-height:85vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  padding:80px 24px 60px;
+}
+
+/* layered garden background */
+.hero-bg{
+  display:none; /* hidden — photos replace this */
+}
+
+/* fixed botanical arch left & right */
+/* ── HERO PHOTO SLIDESHOW ── */
+.hero-slides{
+  position:absolute;inset:0;z-index:0;
+  overflow:hidden;
+}
+.hero-slide{
+  position:absolute;inset:0;
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  opacity:0;
+  transition:opacity 1.8s ease-in-out;
+}
+.hero-slide.active{
+  opacity:1;
+}
+/* Overlay: keeps text readable on any photo */
+.hero-slides::after{
+  content:'';
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(to bottom,
+      rgba(253,247,236,.60) 0%,
+      rgba(253,247,236,.30) 45%,
+      rgba(253,247,236,.30) 55%,
+      rgba(253,247,236,.60) 100%),
+    linear-gradient(to right,
+      rgba(253,247,236,.40) 0%,
+      transparent 25%,
+      transparent 75%,
+      rgba(253,247,236,.40) 100%);
+}
+
+.arch-left,.arch-right{
+  position:absolute;top:0;z-index:1;
+  pointer-events:none;
+}
+.arch-left{left:-10px}
+.arch-right{right:-10px;transform:scaleX(-1)}
+
+/* center wreath behind names */
+.hero-wreath{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-54%);
+  z-index:1;pointer-events:none;
+  opacity:.18;
+  animation:wreathSpin 40s linear infinite;
+}
+@keyframes wreathSpin{from{transform:translate(-50%,-54%) rotate(0deg)}to{transform:translate(-50%,-54%) rotate(360deg)}}
+
+.hero-inner{
+  position:relative;z-index:2;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+}
+
+.hero-eyebrow{
+  font-family:'Cinzel',serif;font-size:13px;letter-spacing:.28em;
+  color:var(--olive-dk);text-transform:uppercase;margin-bottom:20px;
+  animation:fadeUp .9s ease .3s both;
+  text-shadow:0 1px 8px rgba(253,247,236,.9),0 0 20px rgba(253,247,236,.7);
+  font-weight:600;
+  order:-1;
+}
+.hero-names{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(72px,14vw,150px);
+  color:var(--olive-dk);
+  line-height:.85;letter-spacing:.01em;
+  animation:fadeUp 1s ease .5s both;
+  position:relative;
+}
+.hero-ampersand{
+  display:block;
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(40px,7vw,80px);
+  color:var(--champ-dk);
+  line-height:1;margin:.1em 0;
+}
+.hero-tagline-script{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(18px,3vw,28px);
+  color:var(--rose);margin-top:8px;
+  animation:fadeUp .9s ease .7s both;
+}
+.hero-divider{
+  display:flex;align-items:center;gap:16px;
+  width:clamp(260px,50%,500px);margin:28px auto;
+  animation:fadeUp .9s ease .9s both;
+}
+.hero-divider .line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--champ-dk),transparent)}
+.hero-divider .floral-icon{font-size:22px;color:var(--olive-lt)}
+.hero-date{
+  font-family:'Cinzel',serif;font-size:clamp(11px,2vw,14px);
+  letter-spacing:.35em;color:var(--dark);text-transform:uppercase;
+  animation:fadeUp .9s ease 1s both;
+}
+.hero-church{
+  font-family:'EB Garamond',serif;font-size:clamp(14px,2.5vw,18px);
+  font-style:italic;color:var(--dark);margin-top:32px;
+  animation:fadeUp .9s ease 1.1s both;
+}
+.hero-sub-tags{
+  margin-top:16px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  animation:fadeUp .9s ease 1.2s both;
+}
+.hero-sub-tag{
+  font-family:'EB Garamond',serif;font-size:14px;font-style:italic;
+  color:var(--champ-dk);letter-spacing:.05em;
+}
+
+/* falling petals */
+.petal{position:absolute;pointer-events:none;z-index:1;border-radius:60% 0 60% 0;opacity:0}
+@keyframes petalFall{
+  0%{transform:translateY(-80px) rotate(0deg) translateX(0);opacity:0}
+  8%{opacity:.7}
+  90%{opacity:.4}
+  100%{transform:translateY(105vh) rotate(800deg) translateX(40px);opacity:0}
+}
+
+/* scroll cue */
+.scroll-cue{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  animation:fadeIn 1s ease 2.2s both;
+}
+.scroll-cue .sc-text{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.3em;color:var(--gray);text-transform:uppercase}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--champ-dk),transparent);animation:scrollPulse 1.6s ease infinite}
+@keyframes scrollPulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+@keyframes fadeUp{from{transform:translateY(35px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ═══════════════════════════════════════════════
+   PHOTO STRIPS
+═══════════════════════════════════════════════ */
+.strip-section{
+  overflow:hidden;padding:10px 0;position:relative;
+  background:var(--olive-dk);
+}
+.strip-section::before,.strip-section::after{
+  content:'';position:absolute;left:0;right:0;height:2px;z-index:2;
+  background:linear-gradient(90deg,transparent,var(--champ-dk),var(--gold-lt),var(--champ-dk),transparent);
+}
+.strip-section::before{top:0}
+.strip-section::after{bottom:0}
+.strip-track{display:flex;gap:0;padding:5px 0;width:max-content;will-change:transform}
+.strip-track.go-left{animation:goLeft 70s linear infinite}
+.strip-track.go-right{animation:goRight 70s linear infinite}
+.strip-track:hover{animation-play-state:paused}
+@keyframes goLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes goRight{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+
+.photo-card{
+  flex-shrink:0;margin:0 7px;
+  border:3px solid rgba(201,169,110,.6);
+  box-shadow:0 6px 20px rgba(0,0,0,.35);
+  background:var(--champ);
+  border-radius:3px;overflow:hidden;position:relative;
+  transition:transform .35s ease,box-shadow .35s ease;
+}
+.photo-card:hover{transform:scale(1.05) translateY(-4px);box-shadow:0 14px 40px rgba(0,0,0,.45);z-index:10}
+.photo-card.land{width:270px;height:180px}
+.photo-card.port{width:145px;height:215px}
+.photo-card .pc-inner{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  position:relative;overflow:hidden;
+}
+.photo-card .pc-motif{font-size:30px;z-index:1;position:relative}
+.photo-card .pc-text{
+  font-family:'Great Vibes',cursive;font-size:16px;
+  color:inherit;z-index:1;position:relative;text-align:center;padding:0 8px;
+}
+/* actual photo fills the card */
+.photo-card .pc-photo{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+}
+/* corner flourish on each card */
+.photo-card::before{
+  content:'✿';position:absolute;top:5px;left:7px;
+  font-size:12px;opacity:.4;z-index:2;color:var(--champ-dk);
+}
+.photo-card::after{
+  content:'✿';position:absolute;bottom:5px;right:7px;
+  font-size:12px;opacity:.4;z-index:2;color:var(--champ-dk);
+}
+/* card svg corner overlay */
+.card-corner-svg{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  width:100%;height:100%;
+}
+
+/* ═══════════════════════════════════════════════
+   COUNTDOWN
+═══════════════════════════════════════════════ */
+#countdown{
+  background:linear-gradient(160deg,var(--olive-dk) 0%,#2e3a1a 100%);
+  padding:90px 20px;position:relative;overflow:hidden;
+}
+.cd-garden-top,.cd-garden-bot{
+  position:absolute;left:0;right:0;width:100%;z-index:1;
+  pointer-events:none;display:block;
+}
+.cd-garden-top{top:-2px}
+.cd-garden-bot{bottom:-2px;transform:scaleY(-1)}
+.cd-inner{position:relative;z-index:2;max-width:800px;margin:0 auto;text-align:center}
+.cd-script{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,44px);
+  font-weight:300;font-style:italic;letter-spacing:.06em;
+  color:var(--champ);margin-bottom:8px;
+}
+.cd-verse{
+  font-family:'EB Garamond',serif;font-size:14px;font-style:italic;
+  color:var(--olive-lt);margin-bottom:50px;letter-spacing:.04em;
+}
+.cd-grid{display:flex;justify-content:center;align-items:center;gap:clamp(12px,3vw,36px);flex-wrap:wrap}
+.cd-unit{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:70px}
+.cd-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(52px,10vw,96px);font-weight:300;line-height:1;
+  color:var(--champ);min-width:2ch;text-align:center;
+}
+.cd-lbl{
+  font-family:'Cinzel',serif;font-size:8px;letter-spacing:.28em;
+  color:var(--champ-md);text-transform:uppercase;
+}
+.cd-sep{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(44px,8vw,80px);font-weight:300;
+  color:var(--champ-dk);align-self:flex-start;margin-top:8px;
+}
+.cd-floral-row{
+  display:flex;justify-content:center;gap:8px;margin-top:40px;
+  font-size:22px;color:var(--olive-lt);opacity:.6;
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION COMMONS
+═══════════════════════════════════════════════ */
+.section-wrap{padding:100px 24px;position:relative;overflow:hidden}
+.section-inner{max-width:960px;margin:0 auto;position:relative;z-index:2}
+
+.s-eyebrow{
+  font-family:'Cinzel',serif;font-size:9px;letter-spacing:.38em;
+  color:var(--olive);text-transform:uppercase;text-align:center;margin-bottom:16px;
+}
+.s-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(30px,5vw,52px);
+  font-weight:300;font-style:italic;letter-spacing:.06em;
+  color:var(--olive-dk);text-align:center;margin-bottom:36px;line-height:1.2;
+}
+.floral-divider{
+  display:flex;justify-content:center;align-items:center;gap:10px;
+  margin:0 auto 64px;max-width:420px;
+}
+.floral-divider .fd-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--champ-dk),transparent)}
+.floral-divider .fd-bloom{font-size:20px;color:var(--olive-lt)}
+.floral-divider .fd-dot{font-size:10px;color:var(--champ-dk)}
+
+/* corner garden flourishes on sections */
+.section-corner{position:absolute;pointer-events:none;z-index:1;opacity:.12}
+.section-corner.tl{top:0;left:0}
+.section-corner.tr{top:0;right:0;transform:scaleX(-1)}
+.section-corner.bl{bottom:0;left:0;transform:scaleY(-1)}
+.section-corner.br{bottom:0;right:0;transform:scale(-1)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .85s ease,transform .85s ease}
+.rv.in{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}.rv.d5{transition-delay:.5s}
+
+/* ═══════════════════════════════════════════════
+   EVENTS
+═══════════════════════════════════════════════ */
+.events-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+.ev-card{
+  background:var(--cream);
+  border:1px solid rgba(180,150,80,.25);
+  border-radius:3px;padding:44px 32px 36px;
+  text-align:center;position:relative;overflow:hidden;
+  box-shadow:0 6px 28px var(--shadow);
+  transition:transform .4s ease,box-shadow .4s ease;
+}
+.ev-card:hover{transform:translateY(-8px);box-shadow:0 20px 56px var(--shadow)}
+.ev-card-topfloral{
+  display:block;margin:0 auto 20px;opacity:.7;
+}
+.ev-card-label{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.3em;color:var(--gray);text-transform:uppercase;margin-bottom:10px}
+.ev-card-name{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;font-style:italic;letter-spacing:.04em;color:var(--olive-dk);margin-bottom:16px;line-height:1.1}
+.ev-card-time{font-family:'Cinzel',serif;font-size:13px;letter-spacing:.18em;color:var(--champ-dk);margin-bottom:12px}
+.ev-card-venue{font-family:'EB Garamond',serif;font-size:15.5px;color:var(--gray);line-height:1.7}
+/* ribbon corner on each event card */
+.ev-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(to right,var(--olive-lt),var(--champ-dk),var(--olive-lt));
+}
+
+/* ═══════════════════════════════════════════════
+   DRESS CODE
+═══════════════════════════════════════════════ */
+.dress-section{background:linear-gradient(160deg,var(--cream-dk) 0%,var(--cream) 100%)}
+.dress-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+@media(max-width:620px){.dress-grid{grid-template-columns:1fr}}
+.dress-card{
+  background:var(--cream);
+  border:1px solid rgba(180,150,80,.2);border-radius:3px;
+  padding:36px 24px;text-align:center;
+  box-shadow:0 4px 20px var(--shadow);
+  position:relative;overflow:hidden;
+}
+.dress-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(to right,transparent,var(--olive-lt),transparent);
+}
+.dress-section-label{
+  font-family:'Cinzel',serif;font-size:9px;letter-spacing:.32em;
+  color:var(--olive);text-transform:uppercase;text-align:center;
+  margin-bottom:20px;
+}
+.dress-flower{font-size:40px;display:block;margin:0 auto 14px}
+.dress-title{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.28em;color:var(--olive);text-transform:uppercase;margin-bottom:16px}
+.dress-body{font-family:'EB Garamond',serif;font-size:15.5px;color:var(--gray-dk);line-height:1.75}
+.dress-body strong{color:var(--olive-dk)}
+.motif-banner{
+  background:linear-gradient(135deg,rgba(92,110,58,.08),rgba(201,169,110,.1));
+  border:1.5px solid rgba(180,150,80,.35);
+  border-radius:3px;padding:28px 32px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.motif-banner-deco{position:absolute;font-size:80px;opacity:.05;line-height:1}
+.motif-banner-deco.tl{top:-10px;left:-10px}
+.motif-banner-deco.br{bottom:-10px;right:-10px}
+.motif-banner p{font-family:'EB Garamond',serif;font-size:16.5px;font-style:italic;color:var(--gray-dk);line-height:1.7;position:relative;z-index:1}
+.motif-banner strong{color:var(--olive-dk)}
+/* attire photo grid */
+.attire-photo-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+  margin-top:40px;
+}
+@media(max-width:640px){.attire-photo-grid{grid-template-columns:1fr;gap:48px}}
+.attire-col{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+}
+.attire-col-label{
+  font-family:'Cinzel',serif;font-size:9px;letter-spacing:.32em;
+  color:var(--olive);text-transform:uppercase;margin-bottom:20px;
+}
+.attire-img-wrap{
+  width:100%;display:flex;justify-content:center;margin-bottom:24px;
+}
+.attire-img{
+  max-width:100%;max-height:320px;object-fit:contain;
+  filter:drop-shadow(0 4px 16px rgba(59,71,36,.12));
+}
+.palette-col{margin-top:0;justify-content:center}
+
+/* palette swatches */
+.palette{display:flex;justify-content:center;flex-wrap:wrap;gap:16px;margin-top:36px}
+.swatch{display:flex;flex-direction:column;align-items:center;gap:6px}
+.swatch-ring{
+  width:52px;height:52px;border-radius:50%;
+  border:2.5px solid rgba(255,255,255,.7);
+  box-shadow:0 4px 14px rgba(0,0,0,.13),0 0 0 1px rgba(0,0,0,.06);
+}
+.swatch-lbl{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:.15em;color:var(--gray);text-transform:uppercase}
+
+/* ═══════════════════════════════════════════════
+   ENTOURAGE
+═══════════════════════════════════════════════ */
+.ent-section{background:var(--cream)}
+
+/* parents */
+.parents-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:56px}
+@media(max-width:620px){.parents-row{grid-template-columns:1fr}}
+.parent-card{
+  text-align:center;padding:40px 28px;
+  background:var(--cream);
+  border:1px solid rgba(180,150,80,.22);border-radius:3px;
+  box-shadow:0 4px 20px var(--shadow);
+  position:relative;
+}
+.parent-lbl{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.32em;color:var(--olive);text-transform:uppercase;margin-bottom:14px}
+.parent-names{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--gray-dk);line-height:1.85}
+
+/* primary entourage — centered, no emojis */
+.primary-ent{margin-bottom:56px;max-width:700px;margin-left:auto;margin-right:auto}
+.ent-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:0;
+}
+@media(max-width:560px){.ent-grid{grid-template-columns:1fr}}
+.ent-row{
+  display:flex;flex-direction:column;align-items:center;
+  padding:20px 16px;border:1px solid rgba(180,150,80,.14);
+  border-radius:3px;background:var(--cream);
+  box-shadow:0 2px 12px var(--shadow);
+  text-align:center;
+}
+.ent-row.solo{grid-column:1/-1}
+.ent-role{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.32em;color:var(--olive);text-transform:uppercase;margin-bottom:7px}
+.ent-names{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--gray-dk)}
+
+/* secondary sponsors (bridesmaids/groomsmen cards) */
+.principal-sponsors{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:48px}
+@media(max-width:560px){.principal-sponsors{grid-template-columns:1fr}}
+.sp-card{
+  background:var(--cream);
+  border:1px solid rgba(180,150,80,.2);border-radius:3px;
+  padding:28px 20px;text-align:center;
+  box-shadow:0 2px 14px var(--shadow);position:relative;overflow:hidden;
+}
+.sp-card.solo{grid-column:1/-1}
+.sp-num{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.22em;color:var(--olive);margin-bottom:10px;text-transform:uppercase}
+.sp-names{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--gray-dk);line-height:1.7}
+
+/* ceremony sponsors grid */
+.sec-sponsors-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}
+@media(max-width:560px){.sec-sponsors-grid{grid-template-columns:1fr}}
+.ss-card{
+  background:var(--cream);border:1px solid rgba(180,150,80,.15);border-radius:3px;
+  padding:22px 18px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;
+}
+.ss-card.solo{grid-column:1/-1}
+.ss-role{font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:.24em;color:var(--olive);text-transform:uppercase;margin-bottom:4px}
+.ss-names{font-family:'Cormorant Garamond',serif;font-size:15.5px;font-style:italic;color:var(--gray-dk);line-height:1.55}
+
+/* ═══════════════════════════════════════════════
+   HASHTAG SECTION
+═══════════════════════════════════════════════ */
+.hashtag-section{
+  background:linear-gradient(160deg,var(--cream-dk),var(--cream));
+  padding:90px 24px;text-align:center;position:relative;overflow:hidden;
+}
+.hashtag-eyebrow{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.38em;color:var(--olive);text-transform:uppercase;margin-bottom:16px}
+.hashtag-title{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,46px);
+  font-weight:300;font-style:italic;letter-spacing:.06em;
+  color:var(--olive-dk);margin-bottom:40px;
+}
+.hashtag-tag{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:600;
+  font-style:normal;
+  font-size:clamp(19px,4vw,39px);
+  letter-spacing:.08em;
+  color:var(--champ-dk);
+  border:1.5px solid rgba(180,150,80,.35);
+  border-radius:4px;
+  display:block;
+  width:auto;
+  max-width:calc(100vw - 48px);
+  box-sizing:border-box;
+  padding:18px 24px;
+  margin:0 auto 28px;
+  background:var(--cream);
+  box-shadow:0 4px 20px var(--shadow);
+  word-break:break-word;
+  overflow-wrap:anywhere;
+  white-space:normal;
+}
+.hashtag-body{
+  font-family:'EB Garamond',serif;font-size:16.5px;font-style:italic;
+  color:var(--gray);line-height:1.75;max-width:520px;margin:0 auto;
+}
+.hashtag-divider{
+  display:flex;align-items:center;gap:16px;
+  max-width:420px;margin:32px auto;
+}
+.hashtag-divider .hd-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--champ-dk),transparent)}
+.hashtag-divider .hd-dot{font-size:10px;color:var(--champ-dk)}
+@media(max-width:700px){
+  .hashtag-section{padding:72px 20px}
+  .hashtag-tag{
+    font-size:clamp(18px,5vw,28px); /* Increased from 13px, 3.8vw, 22px */
+    letter-spacing:.03em;
+    padding:16px 16px;
+    max-width:calc(100vw - 40px);
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   GIFTS
+═══════════════════════════════════════════════ */
+.gift-section{
+  background:linear-gradient(160deg,var(--olive-dk),#2e3a1a);
+  padding:90px 24px;text-align:center;position:relative;overflow:hidden;
+}
+.gift-floral-bg{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;pointer-events:none;opacity:.06;z-index:0;font-size:260px;line-height:1}
+.gift-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.gift-eyebrow{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.38em;color:var(--olive-lt);text-transform:uppercase;margin-bottom:14px}
+.gift-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,5.5vw,54px);font-weight:300;font-style:italic;letter-spacing:.06em;color:var(--champ);margin-bottom:32px}
+.gift-poem{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,24px);
+  font-style:italic;color:var(--champ-md);line-height:1.9;margin-bottom:16px;
+}
+.gift-sign{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;letter-spacing:.06em;color:var(--champ-dk);margin-top:24px}
+
+/* ═══════════════════════════════════════════════
+   NOTES
+═══════════════════════════════════════════════ */
+.notes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.note-card{
+  background:var(--cream);border:1px solid rgba(180,150,80,.2);border-radius:3px;
+  padding:30px 24px;display:flex;gap:18px;align-items:flex-start;
+  box-shadow:0 4px 20px var(--shadow);
+  position:relative;overflow:hidden;
+}
+.note-card::before{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:3px;
+  background:linear-gradient(to bottom,var(--olive-lt),var(--champ-dk),var(--olive-lt));
+}
+.note-flower{font-size:26px;flex-shrink:0;margin-top:2px}
+.note-title{font-family:'Cinzel',serif;font-size:9px;letter-spacing:.22em;color:var(--olive);text-transform:uppercase;margin-bottom:8px}
+.note-body{font-family:'EB Garamond',serif;font-size:15.5px;color:var(--gray-dk);line-height:1.65}
+
+/* ═══════════════════════════════════════════════
+   RSVP
+═══════════════════════════════════════════════ */
+.rsvp-section{background:linear-gradient(to bottom,var(--cream-dk),var(--cream));text-align:center}
+.rsvp-deadline{font-family:'EB Garamond',serif;font-size:16px;font-style:italic;color:var(--gray);margin-bottom:40px}
+.rsvp-deadline strong{color:var(--olive-dk)}
+.rsvp-frame{
+  border:1.5px solid rgba(180,150,80,.3);border-radius:3px;
+  overflow:hidden;box-shadow:0 12px 48px var(--shadow);
+  position:relative;
+}
+.rsvp-frame::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;z-index:2;
+  background:linear-gradient(to right,var(--olive-lt),var(--champ-dk),var(--olive-lt));
+}
+.rsvp-placeholder{
+  background:var(--cream);padding:70px 40px;position:relative;
+}
+.rsvp-placeholder-flower{font-size:52px;margin-bottom:20px;opacity:.5}
+.rsvp-placeholder-title{font-family:'Great Vibes',cursive;font-size:42px;color:var(--olive-dk);margin-bottom:16px}
+.rsvp-placeholder-body{font-family:'EB Garamond',serif;font-size:15px;color:var(--gray);line-height:1.8;max-width:440px;margin:0 auto}
+.rsvp-placeholder-box {
+  padding: 0;
+  border: none;
+  background: none;
+}
+.rsvp-gform-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+.rsvp-gform-wrap iframe {
+  width: 100%;
+  min-height: 700px;
+  border: none;
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer{
+  background:var(--olive-dk);padding:72px 24px 48px;
+  text-align:center;position:relative;overflow:hidden;
+}
+footer::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2.5px;
+  background:linear-gradient(to right,transparent,var(--champ-dk),var(--gold-lt),var(--champ-dk),transparent);
+}
+.footer-wreath{font-size:52px;margin-bottom:8px;opacity:.2}
+.footer-script{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,6vw,58px);font-weight:300;font-style:italic;letter-spacing:.06em;color:var(--champ);margin-bottom:4px}
+.footer-date{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.3em;color:var(--champ-md);text-transform:uppercase;margin-bottom:28px}
+.footer-verse{font-family:'EB Garamond',serif;font-size:14.5px;font-style:italic;color:rgba(242,226,192,.65);max-width:420px;margin:0 auto;line-height:1.8}
+.footer-line{width:60px;height:1px;background:rgba(180,150,80,.35);margin:24px auto}
+.footer-floral-row{font-size:20px;color:var(--olive-lt);opacity:.45;letter-spacing:.15em;margin-bottom:16px}
+.footer-brand{font-family:'Cinzel',serif;font-size:8px;letter-spacing:.3em;color:rgba(175,193,122,.3);text-transform:uppercase}
+
+/* ═══════════════════════════════════════════════
+   FLORAL BORDER BETWEEN SECTIONS
+═══════════════════════════════════════════════ */
+.floral-border{
+  text-align:center;padding:18px 0;
+  background:var(--cream-dk);
+  font-size:22px;letter-spacing:.12em;
+  color:var(--olive-lt);opacity:.7;
+  overflow:hidden;white-space:nowrap;
+}
+
+/* ═══════════════════════════════════════════════
+   MOBILE NAV
+═══════════════════════════════════════════════ */
+.nav-desktop{display:flex}
+.nav-mobile{display:none}
+
+.nav-flower-btn{
+  background:none;border:none;cursor:pointer;
+  font-size:30px;line-height:1;padding:0;
+  transition:transform .35s ease;
+  filter:hue-rotate(0deg) saturate(1.4) drop-shadow(0 1px 4px rgba(59,71,36,.3));
+}
+.nav-flower-btn.open{transform:rotate(135deg) scale(1.15)}
+
+.nav-mobile-monogram{
+  font-family:'Great Vibes',cursive;
+  font-size:30px;color:var(--olive);line-height:1;
+}
+
+.nav-mobile-menu{
+  display:none;
+  position:fixed;top:64px;left:0;right:0;z-index:999;
+  background:rgba(253,247,236,.97);
+  backdrop-filter:blur(18px);
+  border-bottom:2px solid rgba(92,110,58,.3);
+  flex-direction:column;align-items:center;
+  padding:20px 0 24px;
+  box-shadow:0 8px 32px rgba(59,71,36,.18);
+  transform:translateY(-12px);
+  opacity:0;
+  transition:transform .3s ease, opacity .3s ease;
+}
+.nav-mobile-menu.open{
+  display:flex;
+  transform:translateY(0);
+  opacity:1;
+}
+.nmm-link{
+  font-family:'Cinzel',serif;font-size:11px;letter-spacing:.28em;
+  color:var(--olive-dk);text-decoration:none;text-transform:uppercase;
+  padding:14px 40px;width:100%;text-align:center;
+  border-bottom:1px solid rgba(92,110,58,.12);
+  transition:color .25s, background .25s;
+}
+.nmm-link:last-of-type{border-bottom:none}
+.nmm-link:hover{color:var(--gold);background:rgba(92,110,58,.06)}
+.nmm-floral{
+  margin-top:14px;font-size:16px;
+  letter-spacing:.2em;color:var(--olive-lt);opacity:.7;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media(max-width:700px){
+  nav{padding:0 20px;justify-content:space-between}
+  .nav-desktop{display:none}
+  .nav-mobile{
+    display:flex;width:100%;
+    align-items:center;justify-content:space-between;
+  }
+  .section-wrap{padding:72px 16px}
+  .ev-card{padding:32px 20px}
+  .ent-role{min-width:120px}
+  .rsvp-placeholder{padding:44px 20px}
+}
+
+/* =======================================================
+   🌟 ENCHANTED GARDEN CURSOR TRAIL (Conflict-Free)
+   ======================================================= */
+.garden-cursor-particle {
+  position: fixed; /* Bypasses all layout and overflow issues */
+  pointer-events: none; /* Ensures it doesn't block you from clicking anything */
+  z-index: 9999;
+  font-size: 14px;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+  animation: particleFade 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes particleFade {
+  0% { 
+    transform: scale(0.5) translateY(0) rotate(0deg); 
+    opacity: 1; 
+  }
+  100% { 
+    /* Floats down and spins slightly while fading */
+    transform: scale(1.5) translateY(30px) rotate(90deg); 
+    opacity: 0; 
+  }
+}
+
+
+/* ═══════════════════════════════════════════════
+   VENUE CARDS
+═══════════════════════════════════════════════ */
+.venue-section{
+  margin-top:56px;
+}
+.venue-cards-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:32px;
+  margin-top:16px;
+}
+.venue-card{
+  background:var(--cream);
+  border:1px solid rgba(180,150,80,.28);
+  border-radius:4px;
+  overflow:hidden;
+  box-shadow:0 8px 36px var(--shadow);
+  transition:transform .4s ease,box-shadow .4s ease;
+  position:relative;
+}
+.venue-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 56px var(--shadow);
+}
+/* top accent line */
+.venue-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(to right,var(--olive-lt),var(--champ-dk),var(--olive-lt));
+  z-index:2;
+}
+.venue-photo{
+  width:100%;height:200px;
+  object-fit:cover;object-position:center;
+  display:block;
+  background:linear-gradient(145deg,var(--olive-dk),var(--olive));
+  position:relative;
+}
+/* placeholder shown when no real photo yet */
+.venue-photo-placeholder{
+  width:100%;height:200px;
+  background:linear-gradient(145deg,var(--olive-dk) 0%,var(--olive) 60%,var(--olive-md) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;color:var(--champ);
+  font-family:'Great Vibes',cursive;font-size:28px;
+  position:relative;overflow:hidden;
+}
+.venue-photo-placeholder::after{
+  content:'🌿 🌸 🌺 🌿';
+  position:absolute;bottom:10px;font-size:18px;opacity:.4;letter-spacing:.2em;
+}
+.venue-photo-placeholder .vp-label{
+  font-family:'Cinzel',serif;font-size:8px;letter-spacing:.3em;
+  color:var(--champ-md);text-transform:uppercase;margin-top:4px;
+}
+.venue-body{
+  padding:28px 28px 32px;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:0;
+}
+.venue-tag{
+  font-family:'Cinzel',serif;font-size:8.5px;letter-spacing:.3em;
+  color:var(--olive);text-transform:uppercase;margin-bottom:10px;
+}
+.venue-name{
+  font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;font-style:italic;letter-spacing:.04em;
+  color:var(--olive-dk);line-height:1.1;margin-bottom:6px;
+}
+.venue-address{
+  font-family:'EB Garamond',serif;font-size:15px;
+  color:var(--gray);line-height:1.7;font-style:italic;
+  margin-bottom:24px;
+}
+.venue-divider{
+  display:flex;align-items:center;gap:10px;
+  width:100%;margin-bottom:24px;
+}
+.venue-divider .vd-line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--champ-dk),transparent)}
+.venue-divider .vd-icon{font-size:14px;color:var(--olive-lt)}
+
+/* QR block */
+.venue-qr-block{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  margin-bottom:22px;
+}
+.venue-qr-frame{
+  padding:10px;
+  background:var(--cream);
+  border:1.5px solid rgba(180,150,80,.35);
+  border-radius:4px;
+  box-shadow:0 3px 14px rgba(59,71,36,.1);
+}
+.venue-qr-frame img{
+  display:block;width:150px;height:150px;border-radius:3px;
+}
+.venue-qr-label{
+  font-family:'Cinzel',serif;font-size:7.5px;letter-spacing:.22em;
+  color:var(--gray);text-transform:uppercase;
+}
+
+/* Get Directions button */
+.venue-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Cinzel',serif;font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--cream);text-decoration:none;
+  background:linear-gradient(135deg,var(--olive-dk),var(--olive));
+  border:1.5px solid var(--champ-dk);
+  border-radius:60px;
+  padding:13px 28px;
+  box-shadow:0 4px 18px rgba(59,71,36,.3);
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+}
+.venue-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(59,71,36,.4);
+  background:linear-gradient(135deg,var(--olive),var(--olive-md));
+}
+.venue-btn-icon{font-size:14px}
+
+@media(max-width:700px){
+  .venue-cards-grid{grid-template-columns:1fr}
+  .venue-photo-placeholder{height:160px}
+  .venue-photo{height:160px}
+}
+
+/* ═══════════════════════════════════════════════
+   SCHEDULE OF EVENTS
+═══════════════════════════════════════════════ */
+.schedule-section{
+  background:linear-gradient(160deg,var(--cream-dk),var(--cream));
+  padding:90px 24px;position:relative;overflow:hidden;
+}
+.schedule-timeline{
+  max-width:500px;margin:0 auto;
+  position:relative;
+}
+.schedule-timeline::before{
+  content:'';
+  position:absolute;left:50%;top:0;bottom:0;
+  width:1px;
+  background:linear-gradient(to bottom,transparent,var(--champ-dk) 8%,var(--champ-dk) 92%,transparent);
+  transform:translateX(-50%);
+}
+.sched-item{
+  display:grid;
+  grid-template-columns:1fr 44px 1fr;
+  align-items:center;
+  gap:0;
+  padding:14px 0;
+  position:relative;
+}
+.sched-time{
+  font-family:'Cinzel',serif;font-size:12px;letter-spacing:.18em;
+  color:var(--gold);font-weight:600;
+  text-align:right;padding-right:24px;
+}
+.sched-dot{
+  width:44px;height:44px;
+  border-radius:50%;
+  background:var(--cream);
+  border:2px solid var(--champ-dk);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+  box-shadow:0 2px 12px rgba(180,150,80,.2);
+  z-index:1;position:relative;
+  justify-self:center;
+}
+.sched-detail{
+  font-family:'Cormorant Garamond',serif;font-size:21px;
+  font-style:italic;color:var(--olive-dk);line-height:1.2;
+  text-align:left;padding-left:24px;
+}
+@media(max-width:600px){
+  .schedule-timeline::before{display:none}
+  .sched-item{
+    grid-template-columns:44px 1fr;
+    grid-template-rows:auto auto;
+    gap:2px 12px;
+  }
+  .sched-dot{grid-column:1;grid-row:1/3;align-self:center}
+  .sched-time{grid-column:2;grid-row:1;text-align:left;padding:0;font-size:11px}
+  .sched-detail{grid-column:2;grid-row:2;text-align:left;padding:0;font-size:18px}
+}
+
+</style>
+</head>
+<body>
+
+    
+
+<!-- ── AUDIO ── -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="https://res.cloudinary.com/dmcnpy20v/video/upload/v1776590844/Alex_Warren_-_Ordinary_Official_Lyric_Video_yw5nhx.mp3" type="audio/mpeg"/>
+</audio>
+
+<!-- ── MUSIC PLAYER ── -->
+<div id="music-player">
+  <div class="eq-bars" id="eqBars">
+    <span style="height:5px"></span><span style="height:11px"></span>
+    <span style="height:8px"></span><span style="height:13px"></span>
+    <span style="height:6px"></span>
+  </div>
+  <span class="song-name">Ordinary — Alex Warren</span>
+  <button id="musicBtn" title="Play / Pause">⏸</button> 
+</div>
+
+<!-- ── NAV ── -->
+<nav>
+  <!-- DESKTOP nav -->
+  <div class="nav-links nav-desktop">
+    <a href="#events">Events</a>
+    <span class="nav-floral-sep">✿</span>
+    <a href="#dresscode">Attire</a>
+    <span class="nav-floral-sep">✿</span>
+    <span class="nav-center-monogram">J & J</span>
+    <span class="nav-floral-sep">✿</span>
+    <a href="#entourage">Entourage</a>
+    <span class="nav-floral-sep">✿</span>
+    <a href="#rsvp">RSVP</a>
+    <span class="nav-floral-sep">✿</span>
+    <a href="#hashtag">Hashtag</a>
+  </div>
+  <!-- MOBILE nav -->
+  <div class="nav-mobile">
+    <span class="nav-center-monogram nav-mobile-monogram">J & J</span>
+    <button class="nav-flower-btn" id="navFlowerBtn" aria-label="Open menu" aria-expanded="false">🌿</button>
+  </div>
+</nav>
+
+<!-- Mobile dropdown menu -->
+<div class="nav-mobile-menu" id="navMobileMenu" aria-hidden="true">
+  <a href="#events"    class="nmm-link" onclick="closeMobileNav()">Events</a>
+  <a href="#dresscode" class="nmm-link" onclick="closeMobileNav()">Attire</a>
+  <a href="#entourage" class="nmm-link" onclick="closeMobileNav()">Entourage</a>
+  <a href="#rsvp"      class="nmm-link" onclick="closeMobileNav()">RSVP</a>
+  <a href="#hashtag"   class="nmm-link" onclick="closeMobileNav()">Hashtag</a>
+  <div class="nmm-floral">🌿 🌸 🌺 🍃 🌷</div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
+<section id="hero">
+  <!-- ── PHOTO SLIDESHOW: put your photos in the same folder as index.html ── -->
+  <div class="hero-slides">
+    <div class="hero-slide active" style="background-image:url('1.jpg')"></div>
+    <div class="hero-slide"        data-bg="2.jpg"></div>
+    <div class="hero-slide"        data-bg="3.jpg"></div>
+    <div class="hero-slide"        data-bg="4.jpg"></div>
+  </div>
+  <!-- ─────────────────────────────────────────────────────────────────────── -->
+
+  <div class="hero-bg"></div>
+
+  <!-- Left Arch -->
+  <svg class="arch-left" width="220" height="100vh" viewBox="0 0 220 900" preserveAspectRatio="xMinYMin meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- vine stem -->
+    <path d="M30 900 C30 600 20 500 40 350 C60 200 30 100 50 0" stroke="#5c6e3a" stroke-width="2" opacity=".35" fill="none"/>
+    <!-- leaves along vine -->
+    <ellipse cx="55" cy="820" rx="22" ry="10" fill="#5c6e3a" opacity=".25" transform="rotate(-25 55 820)"/>
+    <ellipse cx="45" cy="760" rx="18" ry="8" fill="#7a8f4e" opacity=".2" transform="rotate(15 45 760)"/>
+    <ellipse cx="65" cy="700" rx="25" ry="11" fill="#5c6e3a" opacity=".22" transform="rotate(-35 65 700)"/>
+    <ellipse cx="40" cy="640" rx="20" ry="9" fill="#afc17a" opacity=".18" transform="rotate(20 40 640)"/>
+    <ellipse cx="70" cy="580" rx="28" ry="12" fill="#5c6e3a" opacity=".24" transform="rotate(-40 70 580)"/>
+    <ellipse cx="35" cy="520" rx="22" ry="9" fill="#7a8f4e" opacity=".2" transform="rotate(30 35 520)"/>
+    <ellipse cx="60" cy="460" rx="24" ry="10" fill="#5c6e3a" opacity=".22" transform="rotate(-30 60 460)"/>
+    <ellipse cx="45" cy="400" rx="20" ry="8" fill="#afc17a" opacity=".18" transform="rotate(15 45 400)"/>
+    <ellipse cx="70" cy="340" rx="26" ry="11" fill="#5c6e3a" opacity=".2" transform="rotate(-20 70 340)"/>
+    <ellipse cx="38" cy="280" rx="18" ry="8" fill="#7a8f4e" opacity=".18" transform="rotate(35 38 280)"/>
+    <!-- roses -->
+    <circle cx="80" cy="840" r="14" fill="#c4857a" opacity=".3"/>
+    <circle cx="80" cy="840" r="8" fill="#e8b4a8" opacity=".25"/>
+    <circle cx="68" cy="620" r="12" fill="#c4857a" opacity=".28"/>
+    <circle cx="68" cy="620" r="7" fill="#e8b4a8" opacity=".22"/>
+    <circle cx="85" cy="400" r="16" fill="#c4857a" opacity=".25"/>
+    <circle cx="85" cy="400" r="9" fill="#e8b4a8" opacity=".2"/>
+    <circle cx="62" cy="180" r="13" fill="#b8962e" opacity=".2"/>
+    <circle cx="62" cy="180" r="7" fill="#d4b860" opacity=".18"/>
+    <!-- wildflowers -->
+    <circle cx="110" cy="720" r="5" fill="#b8962e" opacity=".22"/>
+    <circle cx="100" cy="500" r="6" fill="#afc17a" opacity=".2"/>
+    <circle cx="115" cy="300" r="5" fill="#c4857a" opacity=".18"/>
+    <!-- large statement leaf -->
+    <path d="M0 200 Q55 180 60 120 Q80 160 40 200 Z" fill="#5c6e3a" opacity=".12"/>
+    <path d="M0 450 Q60 420 65 360 Q85 410 38 450 Z" fill="#7a8f4e" opacity=".12"/>
+    <path d="M0 680 Q65 655 68 590 Q90 640 40 680 Z" fill="#5c6e3a" opacity=".12"/>
+  </svg>
+
+  <svg class="arch-right" width="220" height="100vh" viewBox="0 0 220 900" preserveAspectRatio="xMinYMin meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M30 900 C30 600 20 500 40 350 C60 200 30 100 50 0" stroke="#5c6e3a" stroke-width="2" opacity=".35" fill="none"/>
+    <ellipse cx="55" cy="820" rx="22" ry="10" fill="#5c6e3a" opacity=".25" transform="rotate(-25 55 820)"/>
+    <ellipse cx="45" cy="760" rx="18" ry="8" fill="#7a8f4e" opacity=".2" transform="rotate(15 45 760)"/>
+    <ellipse cx="65" cy="700" rx="25" ry="11" fill="#5c6e3a" opacity=".22" transform="rotate(-35 65 700)"/>
+    <ellipse cx="40" cy="640" rx="20" ry="9" fill="#afc17a" opacity=".18" transform="rotate(20 40 640)"/>
+    <ellipse cx="70" cy="580" rx="28" ry="12" fill="#5c6e3a" opacity=".24" transform="rotate(-40 70 580)"/>
+    <ellipse cx="35" cy="520" rx="22" ry="9" fill="#7a8f4e" opacity=".2" transform="rotate(30 35 520)"/>
+    <ellipse cx="60" cy="460" rx="24" ry="10" fill="#5c6e3a" opacity=".22" transform="rotate(-30 60 460)"/>
+    <ellipse cx="45" cy="400" rx="20" ry="8" fill="#afc17a" opacity=".18" transform="rotate(15 45 400)"/>
+    <ellipse cx="70" cy="340" rx="26" ry="11" fill="#5c6e3a" opacity=".2" transform="rotate(-20 70 340)"/>
+    <circle cx="80" cy="840" r="14" fill="#c4857a" opacity=".3"/>
+    <circle cx="80" cy="840" r="8" fill="#e8b4a8" opacity=".25"/>
+    <circle cx="68" cy="620" r="12" fill="#c4857a" opacity=".28"/>
+    <circle cx="68" cy="620" r="7" fill="#e8b4a8" opacity=".22"/>
+    <circle cx="85" cy="400" r="16" fill="#c4857a" opacity=".25"/>
+    <circle cx="85" cy="400" r="9" fill="#e8b4a8" opacity=".2"/>
+    <path d="M0 200 Q55 180 60 120 Q80 160 40 200 Z" fill="#5c6e3a" opacity=".12"/>
+    <path d="M0 450 Q60 420 65 360 Q85 410 38 450 Z" fill="#7a8f4e" opacity=".12"/>
+    <path d="M0 680 Q65 655 68 590 Q90 640 40 680 Z" fill="#5c6e3a" opacity=".12"/>
+  </svg>
+
+  <!-- background wreath -->
+  <svg class="hero-wreath" width="560" height="560" viewBox="0 0 560 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="280" cy="280" r="220" stroke="#5c6e3a" stroke-width="1" stroke-dasharray="8 14" opacity=".6"/>
+    <circle cx="280" cy="280" r="240" stroke="#c9a96e" stroke-width=".5" stroke-dasharray="3 20" opacity=".5"/>
+    <!-- leaves around the ring -->
+    <g opacity=".8">
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#5c6e3a" transform="rotate(0 280 280) translate(0 -225)"/>
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#5c6e3a" transform="rotate(30 280 280) translate(0 -225)"/>
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#7a8f4e" transform="rotate(60 280 280) translate(0 -225)"/>
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#5c6e3a" transform="rotate(90 280 280) translate(0 -225)"/>
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#afc17a" transform="rotate(120 280 280) translate(0 -225)"/>
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#5c6e3a" transform="rotate(150 280 280) translate(0 -225)"/>
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#7a8f4e" transform="rotate(180 280 280) translate(0 -225)"/>
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#5c6e3a" transform="rotate(210 280 280) translate(0 -225)"/>
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#afc17a" transform="rotate(240 280 280) translate(0 -225)"/>
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#5c6e3a" transform="rotate(270 280 280) translate(0 -225)"/>
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#7a8f4e" transform="rotate(300 280 280) translate(0 -225)"/>
+      <ellipse cx="280" cy="55" rx="14" ry="6" fill="#5c6e3a" transform="rotate(330 280 280) translate(0 -225)"/>
+    </g>
+    <!-- rose blossoms on wreath -->
+    <circle cx="280" cy="60" r="10" fill="#c4857a" opacity=".7"/>
+    <circle cx="280" cy="60" r="5" fill="#f0d5cc" opacity=".6"/>
+    <circle cx="280" cy="60" r="10" fill="#c4857a" opacity=".7" transform="rotate(45 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="5" fill="#f0d5cc" opacity=".6" transform="rotate(45 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="10" fill="#c4857a" opacity=".7" transform="rotate(90 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="5" fill="#f0d5cc" opacity=".6" transform="rotate(90 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="10" fill="#c4857a" opacity=".7" transform="rotate(135 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="5" fill="#f0d5cc" opacity=".6" transform="rotate(135 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="10" fill="#c4857a" opacity=".7" transform="rotate(180 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="5" fill="#f0d5cc" opacity=".6" transform="rotate(180 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="10" fill="#c4857a" opacity=".7" transform="rotate(225 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="5" fill="#f0d5cc" opacity=".6" transform="rotate(225 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="10" fill="#c4857a" opacity=".7" transform="rotate(270 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="5" fill="#f0d5cc" opacity=".6" transform="rotate(270 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="10" fill="#c4857a" opacity=".7" transform="rotate(315 280 280) translate(0 -220)"/>
+    <circle cx="280" cy="60" r="5" fill="#f0d5cc" opacity=".6" transform="rotate(315 280 280) translate(0 -220)"/>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-eyebrow rv">PLEASE JOIN US AS WE CELEBRATE OUR WEDDING</div>
+
+    <div class="hero-names rv">
+      Jen
+      <span class="hero-ampersand">&amp;</span>
+      Junior
+    </div>
+
+    <div class="hero-divider rv">
+      <div class="line"></div>
+      <span class="floral-icon">🌸</span>
+      <div class="line"></div>
+    </div>
+
+    <div class="hero-date rv">22 · May · 2026</div>
+    <div class="hero-church rv">San Guillermo Parish Church · Villa De Bacolor, Pampanga<br> Lugar De Vergara, San Isidro Bacolor</div>
+    <div class="hero-sub-tags rv">
+      
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <div class="sc-text">Scroll</div>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══ PHOTO STRIPS ══
+     HOW TO ADD YOUR PHOTOS:
+     - Replace the src="YOUR_PHOTO_X.jpg" values below with your actual image file names.
+     - Landscape photos (wide) go in strip-land, strip-land2, strip-land3  → 270×180 px display size
+     - Portrait photos (tall)  go in strip-port, strip-port2              → 145×215 px display size
+     - You need at least 10 landscape photos and 12 portrait photos.
+     - The strips duplicate automatically for seamless looping — just fill in the first set.
+     ══ -->
+
+<!-- STRIP 1 — Landscape, scrolls LEFT -->
+<div class="strip-section">
+  <div class="strip-track go-left" id="strip-land">
+    <!-- LANDSCAPE PHOTOS (10 needed — replace src values with your image paths) -->
+    <div class="photo-card land"><img src="mt1.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt2.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt3.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt4.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt5.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt6.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt7.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt8.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+
+
+    <div class="photo-card land"><img src="mt1.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt2.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt3.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt4.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt5.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt6.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt7.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    <div class="photo-card land"><img src="mt8.jpg" alt="Jennifer &amp; Junior" class="pc-photo" loading="lazy" decoding="async"></div>
+    
+  </div>
+</div>
+
+<!-- ══ FLORAL BORDER ══ -->
+<div class="floral-border">🌿 🌸 🌺 🌼 🍃 🌷 🌻 🌸 🌿 🌺 🌼 🌸 🍃 🌷 🌿 🌸 🌺 🌼 🍃 🌷</div>
+
+<!-- ══════════════════════════════════════════════
+     COUNTDOWN
+══════════════════════════════════════════════ -->
+<div id="countdown">
+  <!-- garden border top -->
+  <svg class="cd-garden-top" height="60" viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M-10 60 L-10 28 Q150 -2 300 20 Q450 42 600 20 Q750 -2 900 20 Q1050 42 1210 20 L1210 60 Z" fill="#fdf7ec"/>
+    <circle cx="150" cy="12" r="5" fill="#afc17a" opacity=".5"/>
+    <circle cx="450" cy="26" r="6" fill="#c4857a" opacity=".45"/>
+    <circle cx="750" cy="12" r="5" fill="#afc17a" opacity=".5"/>
+    <circle cx="1050" cy="26" r="6" fill="#c4857a" opacity=".45"/>
+  </svg>
+
+  <div class="cd-inner">
+    <div class="cd-script rv">Counting Down to Forever</div>
+    <div class="cd-verse rv">"Love is patient, love is kind." — 1 Corinthians 13:4</div>
+    <div class="cd-grid rv">
+      <div class="cd-unit"><div class="cd-num" id="cd-d">--</div><div class="cd-lbl">Days</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit"><div class="cd-num" id="cd-h">--</div><div class="cd-lbl">Hours</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit"><div class="cd-num" id="cd-m">--</div><div class="cd-lbl">Minutes</div></div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit"><div class="cd-num" id="cd-s">--</div><div class="cd-lbl">Seconds</div></div>
+    </div>
+    <div class="cd-floral-row rv">🌸 🌿 🌺 🍃 🌷 🌿 🌸</div>
+  </div>
+
+  <svg class="cd-garden-bot" height="60" viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M-10 60 L-10 28 Q150 -2 300 20 Q450 42 600 20 Q750 -2 900 20 Q1050 42 1210 20 L1210 60 Z" fill="#fdf7ec"/>
+  </svg>
+</div>
+
+<!-- ══ FLORAL BORDER ══ -->
+<div class="floral-border">🌺 🍃 🌸 🌿 🌼 🌷 🌻 🍃 🌸 🌺 🌿 🌼 🌷 🌸 🌻 🌿 🌺 🍃 🌸 🌼</div>
+
+<!-- ══════════════════════════════════════════════
+     EVENTS
+══════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════════
+     ENTOURAGE
+══════════════════════════════════════════════ -->
+<div id="entourage" class="ent-section">
+  <div class="section-wrap">
+    <svg class="section-corner tl" width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M10 190 Q10 10 190 10" stroke="#5c6e3a" stroke-width="1.5" fill="none" stroke-dasharray="5 10"/><circle cx="45" cy="155" r="20" fill="#5c6e3a" opacity=".2"/><circle cx="45" cy="155" r="10" fill="#c4857a" opacity=".3"/><ellipse cx="78" cy="142" rx="22" ry="9" fill="#7a8f4e" opacity=".22" transform="rotate(-28 78 142)"/><ellipse cx="28" cy="105" rx="18" ry="8" fill="#5c6e3a" opacity=".2" transform="rotate(18 28 105)"/><circle cx="88" cy="75" r="9" fill="#b8962e" opacity=".25"/><ellipse cx="112" cy="28" rx="16" ry="7" fill="#afc17a" opacity=".2" transform="rotate(-12 112 28)"/></svg>
+    <svg class="section-corner tr" width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M10 190 Q10 10 190 10" stroke="#5c6e3a" stroke-width="1.5" fill="none" stroke-dasharray="5 10"/><circle cx="45" cy="155" r="20" fill="#5c6e3a" opacity=".2"/><circle cx="45" cy="155" r="10" fill="#c4857a" opacity=".3"/><ellipse cx="78" cy="142" rx="22" ry="9" fill="#7a8f4e" opacity=".22" transform="rotate(-28 78 142)"/></svg>
+
+    <div class="section-inner">
+      <div class="s-eyebrow rv">Our Beloved</div>
+      <div class="s-title rv">Wedding Entourage</div>
+      <div class="floral-divider rv">
+        <div class="fd-line"></div>
+        <span class="fd-dot">✦</span>
+        <span class="fd-bloom">🌺</span>
+        <span class="fd-dot">✦</span>
+        <div class="fd-line"></div>
+      </div>
+
+      <!-- PARENTS -->
+      <div class="s-eyebrow rv" style="margin-bottom:24px">Parents of the Bride &amp; Groom</div>
+      <div class="parents-row">
+        <div class="parent-card rv d1">
+          <div class="parent-lbl">Parents of the Bride</div>
+          <div class="parent-names">Marivic C. Manuntag<br>&amp; Joshua D. Manuntag</div>
+        </div>
+        <div class="parent-card rv d2">
+          <div class="parent-lbl">Parents of the Groom</div>
+          <div class="parent-names">Juvy T. Gomez<br>&amp; Arsenio D. Somera</div>
+        </div>
+      </div>
+
+      <!-- PRIMARY -->
+      <div class="s-eyebrow rv" style="margin-bottom:24px">Primary Entourage</div>
+      <div class="primary-ent rv">
+        <div class="ent-grid">
+          <div class="ent-row"><div class="ent-role">Maid of Honor</div><div class="ent-names">Malu C. Manuntag</div></div>
+          <div class="ent-row"><div class="ent-role">Best Man</div><div class="ent-names">Jayson G. Somera</div></div>
+          <div class="ent-row solo"><div class="ent-role">Matron of Honor</div><div class="ent-names">Joyce C. Manuntag<br><em style="font-size:14px;color:var(--olive-dk)">with Joshua D. Ronquillo</em></div></div>
+        </div>
+      </div>
+
+      <!-- PRINCIPAL SPONSORS (Bridesmaids & Groomsmen) -->
+      <div class="s-eyebrow rv" style="margin-bottom:24px">Bridesmaids &amp; Groomsmen</div>
+      <div class="principal-sponsors">
+        <div class="sp-card rv d1">
+          <div class="sp-names">Rexie B. Intano<br>&amp; Alvin G. Camua</div>
+        </div>
+        <div class="sp-card rv d2">
+          <div class="sp-names">Eva Mae V. Camua<br>&amp; Ayson G. Camua</div>
+        </div>
+        <div class="sp-card rv d3">
+          <div class="sp-names">Juliet C. Duya<br>&amp; Jobert C. Manuntag</div>
+        </div>
+      </div>
+
+      <!-- PRINCIPAL SPONSORS -->
+      <div class="s-eyebrow rv" style="margin-bottom:24px">Principal Sponsors</div>
+      <div class="principal-sponsors">
+        <div class="sp-card rv d1">
+          <div class="sp-names">Mr. Henry Manuntag<br>&amp; Ms. Suzie Quiroz</div>
+        </div>
+        <div class="sp-card rv d2">
+          <div class="sp-names">Mr. Jun Culala<br>&amp; Mrs. Nida Somera</div>
+        </div>
+        <div class="sp-card rv d3">
+          <div class="sp-names">Mr. Jomer Quiazon<br>&amp; Mrs. Rebecca Ronquillo</div>
+        </div>
+        <div class="sp-card rv d4">
+          <div class="sp-names">Mr. Wilfredo Sanchez<br>&amp; Mrs. Remedios Manuntag</div>
+        </div>
+        <div class="sp-card rv d5 solo">
+          <div class="sp-names">Mr. Efren Paguio<br>&amp; Mrs. Maritess Clorado</div>
+        </div>
+      </div>
+
+      <!-- SECONDARY SPONSORS -->
+      <div class="s-eyebrow rv" style="margin-bottom:24px">Secondary Sponsors</div>
+      <div class="sec-sponsors-grid">
+        <div class="ss-card rv d1"><div><div class="ss-role">Candle</div><div class="ss-names">Ronalyn B. Manoloto<br>&amp; Jon Mark C. Manuntag</div></div></div>
+        <div class="ss-card rv d2"><div><div class="ss-role">Veil</div><div class="ss-names">Germaine S. Pineda<br>&amp; Gerard C. Pineda</div></div></div>
+        <div class="ss-card rv d3"><div><div class="ss-role">Cord</div><div class="ss-names">Jona Mae C. Galang<br>&amp; Jonathan C. Manuntag</div></div></div>
+        <div class="ss-card rv d4 solo"><div><div class="ss-role">Ring, Coin &amp; Bible</div><div class="ss-names">Paulo Gabriel C. Galang</div></div></div>
+        <div class="ss-card rv d5 solo"><div><div class="ss-role">Flower Girl</div><div class="ss-names">Amara Felize C. Duya</div></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+<div id="events" style="background:var(--cream)">
+  <div class="section-wrap">
+    <!-- garden corner ornaments -->
+    <svg class="section-corner tl" width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M10 190 Q10 10 190 10" stroke="#5c6e3a" stroke-width="1.5" fill="none" stroke-dasharray="5 10"/><circle cx="40" cy="160" r="18" fill="#5c6e3a"/><circle cx="40" cy="160" r="9" fill="#afc17a"/><circle cx="25" cy="130" r="12" fill="#c4857a" opacity=".7"/><ellipse cx="70" cy="150" rx="22" ry="9" fill="#5c6e3a" opacity=".5" transform="rotate(-25 70 150)"/><ellipse cx="30" cy="90" rx="18" ry="8" fill="#7a8f4e" opacity=".5" transform="rotate(15 30 90)"/><circle cx="75" cy="80" r="8" fill="#c4857a" opacity=".6"/><ellipse cx="100" cy="30" rx="16" ry="7" fill="#5c6e3a" opacity=".5" transform="rotate(-15 100 30)"/></svg>
+    <svg class="section-corner tr" width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M10 190 Q10 10 190 10" stroke="#5c6e3a" stroke-width="1.5" fill="none" stroke-dasharray="5 10"/><circle cx="40" cy="160" r="18" fill="#5c6e3a"/><circle cx="40" cy="160" r="9" fill="#afc17a"/><circle cx="25" cy="130" r="12" fill="#c4857a" opacity=".7"/><ellipse cx="70" cy="150" rx="22" ry="9" fill="#5c6e3a" opacity=".5" transform="rotate(-25 70 150)"/></svg>
+
+    <div class="section-inner">
+      <div class="s-eyebrow rv">Save The Date</div>
+      <div class="s-title rv">Our Celebration</div>
+      <div class="floral-divider rv">
+        <div class="fd-line"></div>
+        <span class="fd-dot">✦</span>
+        <span class="fd-bloom">🌸</span>
+        <span class="fd-dot">✦</span>
+        <div class="fd-line"></div>
+      </div>
+
+
+      
+
+      <!-- ══ VENUE DETAILS ══ -->
+      <div class="venue-section rv">
+        <div class="s-eyebrow" style="margin-bottom:16px">Find Us Here</div>
+        <div class="venue-cards-grid">
+
+          <!-- CEREMONY VENUE -->
+          <div class="venue-card rv d1">
+            <!-- VENUE PHOTO: replace the placeholder below with an <img> tag once you have a photo
+                 Example: <img class="venue-photo" src="church.jpg" alt="San Guillermo Parish Church"> -->
+            <img class="venue-photo" src="church.jpg" alt="San Guillermo Parish Church" loading="lazy" decoding="async">
+            <div class="venue-body">
+              <div class="venue-tag">🕑 Holy Matrimony · 2:30 PM</div>
+              <div class="venue-name">The Ceremony</div>
+              <div class="venue-address">
+                San Guillermo Parish Church<br>
+                Villa De Bacolor, Pampanga
+              </div>
+              <div class="venue-divider">
+                <div class="vd-line"></div>
+                <span class="vd-icon">🌸</span>
+                <div class="vd-line"></div>
+              </div>
+              <div class="venue-qr-block">
+                <div class="venue-qr-frame">
+                  <!-- QR CODE — ceremony venue
+                       TO UPDATE: replace the Google Maps URL below in the href of the button,
+                       then regenerate this QR or use https://qr.io to make a new one for your exact link -->
+                  <img id="qr-ceremony" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAiYAAAImCAIAAADorNYRAAAOlklEQVR4nO3dO47lWnJA0a5GDUqWxqCh9hhkaTDlp5WA3Gc8EA2cPjuCN9fyk7wf3tygEcFf319//gEA9/1z+gUA8FNIDgARyQEgIjkARCQHgIjkABCRHAAikgNARHIAiEgOABHJASAiOQBEJAeAiOQAEJEcACKSA0BEcgCISA4AEckBICI5AEQkB4CI5AAQkRwAIpIDQERyAIhIDgARyQEgIjkARCQHgMjve4f+7//5r3sHH/G///q/S0d+/qx2nvfe395z7x09e+ORT877bOf7feP1fM+9K8ddDgARyQEgIjkARCQHgIjkABCRHAAikgNARHIAiEgOAJGL2wee3ZtuPXEyRTw1Bz5l5yT/iakJ851H3rm5YOrIJ3b+9qc+K3c5AEQkB4CI5AAQkRwAIpIDQERyAIhIDgARyQEgIjkARMa2DzybmjC/Z2rieudz5k/OO2Xqk5z623t2fpJTPu9/3TN3OQBEJAeAiOQAEJEcACKSA0BEcgCISA4AEckBICI5AESWbh/gr3ZOTT9740T9G7ctTF0bJ9/R5+1E4N/nLgeAiOQAEJEcACKSA0BEcgCISA4AEckBICI5AEQkB4CI7QMr3Htm+73p9JMj/7T3e+KNexyeTb0q+wU2cJcDQERyAIhIDgARyQEgIjkARCQHgIjkABCRHAAikgNAZOn2AXPCfzU1fz7l3rc/NW+/c6L+jbsJnk295hM7X9U97nIAiEgOABHJASAiOQBEJAeAiOQAEJEcACKSA0BEcgCIjG0f2Dn3fs/OSe9nU1sPdn5Wbzzvzuvq2Rs/55Mj/zTucgCISA4AEckBICI5AEQkB4CI5AAQkRwAIpIDQERyAIhc3D6wc7b5np3vd+eOgBM7z3ti52d18n6n/nbKG1/zFHc5AEQkB4CI5AAQkRwAIpIDQERyAIhIDgARyQEgIjkARC5uHzjx055Dfm9ae+r9vnEee+dndfKqpv723jt6PvLUNo2dv8FnU79QdzkARCQHgIjkABCRHAAikgNARHIAiEgOABHJASAiOQBExrYP3JvInZqa3jlDPvUU+p37I3burbh35J3X87N7r3mnqfc79Um6ywEgIjkARCQHgIjkABCRHAAikgNARHIAiEgOABHJASAytn1gak54akfAvfc7NYE89bcn7p13aq/BvS0AU3Z+Gm/ca7CTuxwAIpIDQERyAIhIDgARyQEgIjkARCQHgIjkABCRHAAiv76//lw69BufrP7sjTPzn/es+J3X1bOfdtXdO+8z3/5+7nIAiEgOABHJASAiOQBEJAeAiOQAEJEcACKSA0BEcgCI/L536J1T8fcmkHc+hf7ePPbO72jn3oopU9fkG3/dU5sLdh753nfkLgeAiOQAEJEcACKSA0BEcgCISA4AEckBICI5AEQkB4DIxe0D99ybbZ6a1f+8efud39HOb+HepPfUnP/Upoad5526Nqb2KTxzlwNARHIAiEgOABHJASAiOQBEJAeAiOQAEJEcACKSA0BkbPvAzqnaqeeQT01NP9s5UX9y3qlvYefVPvUdTc297/wN7rxi73GXA0BEcgCISA4AEckBICI5AEQkB4CI5AAQkRwAIpIDQOTX99ef6dfwN6bmk6eeFf/s5FXtnF4+eVVvnLd/du8d7Tzyialf6BvPu/OX4i4HgIjkABCRHAAikgNARHIAiEgOABHJASAiOQBEJAeAyO97h37jvP0bp+JPzvvTptPvvaqd18aUz7ueT86788hT3OUAEJEcACKSA0BEcgCISA4AEckBICI5AEQkB4CI5AAQubh9YOpp4Sd/e/Kad07jn7i3qeHZ1Pz5Pfeujc/7FnbuB9m5l2TqVZ1wlwNARHIAiEgOABHJASAiOQBEJAeAiOQAEJEcACKSA0Dk4vaBE1OTsW+c5v08UzPz93zePoUTO39H98578n4/79t3lwNARHIAiEgOABHJASAiOQBEJAeAiOQAEJEcACKSA0Dk4vaBnXOzU5Pt98678+nonvf+V/fe0ZSdGyJ2fpI79xpMcZcDQERyAIhIDgARyQEgIjkARCQHgIjkABCRHAAikgNA5OL2gWf3JoHf+Jz5e6/58yb5n+3cEHHPvfd779uf2sXw03ZP7Pz9ussBICI5AEQkB4CI5AAQkRwAIpIDQERyAIhIDgARyQEg8uv768/IiXc+D/yNs81Tpmabp77fN5q62nd+R5/3mp/tfEfucgCISA4AEckBICI5AEQkB4CI5AAQkRwAIpIDQERyAIiMbR949nmT/Dvnk5/ZxdC4t8dh5/z5s3vv995579m5i+GEuxwAIpIDQERyAIhIDgARyQEgIjkARCQHgIjkABCRHAAiv6dfwN+bmsc+cW96eec89smRd34LO1/VTlOf89R+galr442/wWfucgCISA4AEckBICI5AEQkB4CI5AAQkRwAIpIDQERyAIiMbR/YOY99b9b33vvd+Yz6e/sjpkw9K37KG38LU3ZeGzu3LbjLASAiOQBEJAeAiOQAEJEcACKSA0BEcgCISA4AEckBIDK2feDZ5z3h/GQaf+ek9739Avc+q53XxhvPe++KnTrvian/G2/kLgeAiOQAEJEcACKSA0BEcgCISA4AEckBICI5AEQkB4DI0u0D92bmp567vvN57ztn9U/OO/W3J+7tU7j3LdzbL7DTzt/v1CaOE+5yAIhIDgARyQEgIjkARCQHgIjkABCRHAAikgNARHIAiFzcPrBzMvbe5PPO+eRnU9/R5z0r/o2f5Mmruveap/ZH7PyPtPO/6Al3OQBEJAeAiOQAEJEcACKSA0BEcgCISA4AEckBICI5AEQubh+Yemb7M1PEzXnf+Gncs3Oi/sRP+45OPsmpT2NqE8czdzkARCQHgIjkABCRHAAikgNARHIAiEgOABHJASAiOQBEfn1//bl06J3PIX/jXoMTU1sAdn6DO6+cEzs/yZ1X3ZSdm1amPit3OQBEJAeAiOQAEJEcACKSA0BEcgCISA4AEckBICI5AER+3zv0yRTxzueQP593at7+5JN8o5Nr4953NLWL4Y0+b0fAzitn5x4HdzkARCQHgIjkABCRHAAikgNARHIAiEgOABHJASAiOQBELm4fmNogcHLknXsN7v3tTlOz+lPT2jt/C8/uHXnn5pETU9/vzq0W7nIAiEgOABHJASAiOQBEJAeAiOQAEJEcACKSA0BEcgCI/Pr++nPp0D9t1vfkyM+mJr3veeMM+T2fd12deOPWkp3fwtRmimfucgCISA4AEckBICI5AEQkB4CI5AAQkRwAIpIDQERyAIj8nn4Bf+/zJoHfOG9/8mT1nZPt954Vv/P73fk7OjnyyVV371VNeeNrdpcDQERyAIhIDgARyQEgIjkARCQHgIjkABCRHAAikgNA5Nf3159Lhz6ZE945B/55r/nEGyefn+18Cv3U3z6bOvKzqV/o1P6IndfGM3c5AEQkB4CI5AAQkRwAIpIDQERyAIhIDgARyQEgIjkARH5PnXjnXPS9mds3TnpPPUn+jRsTPm8HxNQ7euOc/z1T+1DucZcDQERyAIhIDgARyQEgIjkARCQHgIjkABCRHAAikgNAZGz7wLOdTym/N3F9ct6pbQs7596n/nbqOfNT1+Q9nzdv/2zntoV73OUAEJEcACKSA0BEcgCISA4AEckBICI5AEQkB4CI5AAQ+fX99WfkxPfmsXduLjgxNdn+xve788jPpibM33jeezPzO6/2Zzs/yWfucgCISA4AEckBICI5AEQkB4CI5AAQkRwAIpIDQERyAIj8nn4B/3knk8/3nru+czr9jc+Kf3bvO7p35UxdVzuvyalvcOen8ezea763m8BdDgARyQEgIjkARCQHgIjkABCRHAAikgNARHIAiEgOAJGl2wfuPdN76onfz964X+De8+3vnXfnboJnUxPmU9PpJ5/Vzm0aP+0bfOYuB4CI5AAQkRwAIpIDQERyAIhIDgARyQEgIjkARCQHgMiv768/lw49NX9+Yurp6FNT8c8+71X9NDu/hZ2vaqc37hd45i4HgIjkABCRHAAikgNARHIAiEgOABHJASAiOQBEJAeAyMXtAz/Nzm0LU6/qjZPtO7da7Lyupuzca3Bi6lVN/Rbc5QAQkRwAIpIDQERyAIhIDgARyQEgIjkARCQHgIjkABD5fe/Qb3zS+LOTidypDQL3zntvennnrP7U+71n5zu6N/d+78p541aLKe5yAIhIDgARyQEgIjkARCQHgIjkABCRHAAikgNARHIAiFzcPvBs52Tszo0JO+fA7+0muLflYedU/Imdk+1TV+zUNP7UtbHzmnzmLgeAiOQAEJEcACKSA0BEcgCISA4AEckBICI5AEQkB4DI2PaBZ/e2AOx8svrUzPzJBoGT8564N2E+tXti6rN6o517De75vI0J7nIAiEgOABHJASAiOQBEJAeAiOQAEJEcACKSA0BEcgCILN0+wF/dm7i+d+Sdmwumtjw8u7eZ4t77vefe+z0xtSHijXtYnrnLASAiOQBEJAeAiOQAEJEcACKSA0BEcgCISA4AEckBIGL7wH/M1Bz41BTx1OaCe+d9tnMnwtSs/tQWgBP3foNv3BEw9Q26ywEgIjkARCQHgIjkABCRHAAikgNARHIAiEgOABHJASDy6/vrz6VDv3E+eefc+4nPmzB/4zT+iandBM+mpuLv2Xk9P9v5X/SZuxwAIpIDQERyAIhIDgARyQEgIjkARCQHgIjkABCRHAAiv6dOPDVjvNPOyeedc+/Pdu4mODnvG38pU5/kPTuvjRNTu0Xc5QAQkRwAIpIDQERyAIhIDgARyQEgIjkARCQHgIjkABD59f31Z/o1APAjuMsBICI5AEQkB4CI5AAQkRwAIpIDQERyAIhIDgARyQEgIjkARCQHgIjkABCRHAAikgNARHIAiEgOABHJASAiOQBEJAeAiOQAEJEcACKSA0BEcgCISA4AEckBICI5AEQkB4CI5AAQkRwAIv8P9SuU6qDBYI8AAAAASUVORK5CYII=" alt="QR – San Guillermo Parish Church" style="width:150px;height:150px;display:block;">
+                </div>
+                <div class="venue-qr-label">Scan to open in Maps</div>
+              </div>
+              <!-- ↓↓ REPLACE href="#" WITH YOUR GOOGLE MAPS LINK FOR THE CEREMONY VENUE ↓↓ -->
+              <a class="venue-btn" href="https://maps.app.goo.gl/DxNt17htJfx75BqCA" target="_blank" rel="noopener">
+                <span class="venue-btn-icon">🗺️</span> Get Directions
+              </a>
+            </div>
+          </div>
+
+          <!-- RECEPTION VENUE -->
+          <div class="venue-card rv d2">
+            <!-- VENUE PHOTO: replace placeholder with <img> once you have a photo
+                 Example: <img class="venue-photo" src="reception.jpg" alt="Lugar De Vergara"> -->
+           <img class="venue-photo" src="reception.jpg" alt="Lagar De Vergara" loading="lazy" decoding="async">
+            <div class="venue-body">
+              <div class="venue-tag">🌿 Wedding Reception · To Follow</div>
+              <div class="venue-name">The Celebration</div>
+              <div class="venue-address">
+                1165 Zone 4, San Isidro<br>
+                Bacolor, Pampanga
+              </div>
+              <div class="venue-divider">
+                <div class="vd-line"></div>
+                <span class="vd-icon">🌺</span>
+                <div class="vd-line"></div>
+              </div>
+              <div class="venue-qr-block">
+                <div class="venue-qr-frame">
+                  <!-- QR CODE — reception venue
+                       TO UPDATE: replace the Google Maps URL in the button href below,
+                       then regenerate this QR or use https://qr.io for your exact link -->
+                  <img id="qr-reception" src="data:image/png;base64,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" alt="QR – Lugar De Vergara" style="width:150px;height:150px;display:block;">
+                </div>
+                <div class="venue-qr-label">Scan to open in Maps</div>
+              </div>
+              <!-- ↓↓ REPLACE href="#" WITH YOUR GOOGLE MAPS LINK FOR THE RECEPTION VENUE ↓↓ -->
+              <a class="venue-btn" href="https://maps.app.goo.gl/d8y5XWCqQn5Xgqgc6" target="_blank" rel="noopener">
+                <span class="venue-btn-icon">🗺️</span> Get Directions
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ══ FLORAL BORDER ══ -->
+<div class="floral-border" style="background:var(--cream-dk)">🌷 🌿 🌸 🌺 🍃 🌼 🌻 🌸 🌿 🌷 🌺 🌸 🍃 🌿 🌼 🌷 🌸 🌺 🌻 🍃</div>
+
+
+ 
+<!-- ══════════════════════════════════════════════
+     DRESS CODE
+══════════════════════════════════════════════ -->
+<div id="dresscode" class="dress-section">
+  <div class="section-wrap">
+    <svg class="section-corner tl" width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M10 190 Q10 10 190 10" stroke="#5c6e3a" stroke-width="1.5" fill="none" stroke-dasharray="5 10"/><circle cx="50" cy="150" r="16" fill="#c4857a" opacity=".3"/><ellipse cx="80" cy="140" rx="20" ry="9" fill="#5c6e3a" opacity=".25" transform="rotate(-30 80 140)"/><ellipse cx="30" cy="100" rx="18" ry="8" fill="#7a8f4e" opacity=".25" transform="rotate(20 30 100)"/><circle cx="90" cy="70" r="10" fill="#b8962e" opacity=".25"/></svg>
+    <svg class="section-corner tr" width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M10 190 Q10 10 190 10" stroke="#5c6e3a" stroke-width="1.5" fill="none" stroke-dasharray="5 10"/><circle cx="50" cy="150" r="16" fill="#c4857a" opacity=".3"/><ellipse cx="80" cy="140" rx="20" ry="9" fill="#5c6e3a" opacity=".25" transform="rotate(-30 80 140)"/></svg>
+    <svg class="section-corner bl" width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M10 190 Q10 10 190 10" stroke="#5c6e3a" stroke-width="1.5" fill="none" stroke-dasharray="5 10"/><circle cx="50" cy="150" r="16" fill="#c4857a" opacity=".3"/></svg>
+
+    <div class="section-inner">
+      <div class="s-eyebrow rv">What to Wear</div>
+      <div class="s-title rv">Attire Guide</div>
+      <div class="floral-divider rv">
+        <div class="fd-line"></div>
+        <span class="fd-dot">✦</span>
+        <span class="fd-bloom">🌿</span>
+        <span class="fd-dot">✦</span>
+        <div class="fd-line"></div>
+      </div>
+
+      <!-- PRINCIPAL SPONSORS -->
+      <div class="dress-section-label rv">Principal Sponsors</div>
+      <div class="dress-grid">
+        <div class="dress-card rv d1">
+          <div class="dress-title">Ninong</div>
+          <div class="dress-body">
+            Cream-colored suit<br>with a matching necktie<br>
+            <em>Strictly Formal</em>
+          </div>
+        </div>
+        <div class="dress-card rv d2">
+          <div class="dress-title">Ninang</div>
+          <div class="dress-body">
+            Floor-length champagne gown<br>
+            <em>Strictly Formal</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- GUESTS -->
+      <div class="dress-section-label rv" style="margin-top:40px">Guests</div>
+      <div class="dress-grid">
+        <div class="dress-card rv d1">
+          <div class="dress-title">Gentlemen</div>
+          <div class="dress-body">
+            Semi-formal Suit<br>or Button-down &amp; Trousers<br>
+            <em>Highly preferred</em>
+          </div>
+        </div>
+        <div class="dress-card rv d2">
+          <div class="dress-title">Ladies</div>
+          <div class="dress-body">
+            Floor-length, Formal,<br>or Cocktail Attire<br>
+            <em>Highly preferred</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="motif-banner rv">
+        <span class="motif-banner-deco tl">🌸</span>
+        <span class="motif-banner-deco br">🌿</span>
+        <p>Our motif is <strong>Romantic Garden</strong>.<br>
+        Please wear shades within our color palette.<br>
+        <strong>Strictly no white and no black.</strong></p>
+      </div>
+
+      <!-- ATTIRE PHOTO LAYOUT -->
+      <div class="attire-photo-grid rv">
+
+        <div class="attire-col">
+          <div class="attire-col-label">Principal Sponsors</div>
+          <div class="attire-img-wrap">
+            <img src="data:image/png;base64,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" alt="Principal Sponsors Attire" class="attire-img">
+          </div>
+          <div class="palette palette-col">
+            <div class="swatch"><div class="swatch-ring" style="background:#e8d5b8"></div><div class="swatch-lbl">Champagne</div></div>
+            <div class="swatch"><div class="swatch-ring" style="background:#c9a96e"></div><div class="swatch-lbl">Gold</div></div>
+            <div class="swatch"><div class="swatch-ring" style="background:#d4b896"></div><div class="swatch-lbl">Nude</div></div>
+            <div class="swatch"><div class="swatch-ring" style="background:#b8a090"></div><div class="swatch-lbl">Taupe</div></div>
+          </div>
+        </div>
+
+        <div class="attire-col">
+          <div class="attire-col-label">Guests</div>
+          <div class="attire-img-wrap">
+            <img src="data:image/png;base64,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" alt="Guests Attire" class="attire-img">
+          </div>
+          <div class="palette palette-col">
+            <div class="swatch"><div class="swatch-ring" style="background:#4a5568"></div><div class="swatch-lbl">Slate</div></div>
+            <div class="swatch"><div class="swatch-ring" style="background:#5c6e3a"></div><div class="swatch-lbl">Olive</div></div>
+            <div class="swatch"><div class="swatch-ring" style="background:#7a8f4e"></div><div class="swatch-lbl">Sage</div></div>
+            <div class="swatch"><div class="swatch-ring" style="background:#afc17a"></div><div class="swatch-lbl">Fern</div></div>
+            <div class="swatch"><div class="swatch-ring" style="background:#d4b896"></div><div class="swatch-lbl">Beige</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- ══════════════════════════════════════════════
+     GIFTS
+══════════════════════════════════════════════ -->
+<div class="gift-section">
+  <div class="gift-floral-bg">🌸</div>
+  <div class="gift-inner">
+    <div class="gift-eyebrow rv">A Gentle Note</div>
+    <div class="gift-title rv">Gift Registry</div>
+    <div class="gift-poem rv">
+      "With all that we have,<br>
+      we've been truly blessed.<br>
+      Your presence and prayers<br>
+      are all that we request.<br><br>
+      But if you desire to give nonetheless,<br>
+      a monetary gift towards our dream home<br>
+      would be greatly appreciated."
+    </div>
+    <div class="gift-sign rv">— Jennifer &amp; Junior</div>
+  </div>
+</div>
+
+<!-- ══ FLORAL BORDER ══ -->
+<div class="floral-border">🌷 🌸 🌿 🌼 🍃 🌺 🌻 🌸 🌷 🌿 🌼 🍃 🌸 🌺 🌷 🌻 🌿 🌼 🍃 🌸</div>
+
+<!-- ══════════════════════════════════════════════
+     NOTES
+══════════════════════════════════════════════ -->
+<div style="background:var(--cream)">
+  <div class="section-wrap">
+    <div class="section-inner">
+      <div class="s-eyebrow rv">Please Note</div>
+      <div class="s-title rv">Kindly Remember</div>
+      <div class="floral-divider rv">
+        <div class="fd-line"></div>
+        <span class="fd-dot">✦</span>
+        <span class="fd-bloom">🍃</span>
+        <span class="fd-dot">✦</span>
+        <div class="fd-line"></div>
+      </div>
+      <div class="notes-grid">
+        <div class="note-card rv d1">
+          <div class="note-flower">📵</div>
+          <div><div class="note-title">Phone-Free Ceremony</div><div class="note-body">No phones allowed during the ceremony. Be fully present with us in this sacred moment.</div></div>
+        </div>
+        <div class="note-card rv d2">
+          <div class="note-flower">👶</div>
+          <div><div class="note-title">Children Policy</div><div class="note-body">No kids during the ceremony unless part of the entourage. Thank you for understanding.</div></div>
+        </div>
+        <div class="note-card rv d3">
+          <div class="note-flower">🌿</div>
+          <div><div class="note-title">Dress Code</div><div class="note-body">Strictly no white and no black. Please wear shades within our Romantic Garden palette.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FLORAL BORDER ══ -->
+<div class="floral-border" style="background:var(--cream-dk)">🌸 🍃 🌺 🌷 🌿 🌼 🌻 🌸 🍃 🌺 🌷 🌿 🌼 🌸 🌻 🍃 🌺 🌷 🌿 🌼</div>
+
+<!-- ══════════════════════════════════════════════
+     HASHTAG
+══════════════════════════════════════════════ -->
+<div id="hashtag" class="hashtag-section">
+  <div class="hashtag-eyebrow rv">Share the Joy</div>
+  <div class="hashtag-title rv">Our Wedding Hashtag</div>
+  <div class="hashtag-divider rv">
+    <div class="hd-line"></div>
+    <span class="hd-dot">✦</span>
+    <div class="hd-line"></div>
+  </div>
+  <div class="hashtag-tag rv">#God’sJENuinegiftforJUNIOR</div>
+  <div class="hashtag-body rv">
+    Once the ceremony concludes and we have officially tied the knot,<br>
+    feel free to capture the joy and help us relive the memories.<br>
+    Please use our official hashtag when posting your photos.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     RSVP
+══════════════════════════════════════════════ -->
+<div id="rsvp" class="rsvp-section">
+  <div class="section-wrap">
+    <svg class="section-corner tl" width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M10 190 Q10 10 190 10" stroke="#5c6e3a" stroke-width="1.5" fill="none" stroke-dasharray="5 10"/><circle cx="45" cy="155" r="18" fill="#5c6e3a" opacity=".18"/><circle cx="45" cy="155" r="9" fill="#c4857a" opacity=".25"/><ellipse cx="75" cy="145" rx="20" ry="8" fill="#7a8f4e" opacity=".2" transform="rotate(-25 75 145)"/></svg>
+    <svg class="section-corner tr" width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M10 190 Q10 10 190 10" stroke="#5c6e3a" stroke-width="1.5" fill="none" stroke-dasharray="5 10"/><circle cx="45" cy="155" r="18" fill="#5c6e3a" opacity=".18"/><circle cx="45" cy="155" r="9" fill="#c4857a" opacity=".25"/></svg>
+    <div class="section-inner" style="text-align:center">
+      <div class="s-eyebrow rv">You're Invited</div>
+      <div class="s-title rv">RSVP</div>
+      <div class="floral-divider rv">
+        <div class="fd-line"></div>
+        <span class="fd-dot">✦</span>
+        <span class="fd-bloom">🌷</span>
+        <span class="fd-dot">✦</span>
+        <div class="fd-line"></div>
+      </div>
+      <p class="rsvp-deadline rv">Kindly respond by <strong>May 8, 2026</strong></p>
+      <div class="rsvp-frame rv">
+        <!-- 
+          TO EMBED YOUR GOOGLE FORM:
+          1. Open Google Forms
+          2. Click Send > Embed icon (< >)
+          3. Copy the <iframe> code
+          4. Replace the rsvp-placeholder div below with that iframe
+          Example:
+          <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" 
+            width="100%" height="700" frameborder="0">Loading…</iframe>
+        -->
+        <div class="rsvp-placeholder">
+          <div class="rsvp-placeholder-flower">🌸</div>
+          <div class="rsvp-placeholder-title">Your RSVP Form</div>
+          <div class="rsvp-gform-wrap"><iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdNta2eg2_IYzOqvkyKv3rS7LduVNRHmWq_VZqC_QyeMN-HlA/viewform?embedded=true" width="640" height="677" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ══ FLORAL BORDER ══ -->
+<div class="floral-border">🌸 🌿 🌺 🍃 🌷 🌼 🌻 🌸 🌿 🌺 🌼 🌸 🍃 🌷 🌿 🌸 🌺 🌼 🍃 🌷</div>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer>
+  <!-- large background botanical -->
+  <svg style="position:absolute;inset:0;width:100%;height:100%;opacity:.04;pointer-events:none" viewBox="0 0 1200 400" fill="none" preserveAspectRatio="xMidYMid slice">
+    <circle cx="600" cy="200" r="160" fill="#afc17a"/>
+    <circle cx="600" cy="200" r="80" fill="#c4857a"/>
+    <ellipse cx="350" cy="200" rx="120" ry="50" fill="#5c6e3a" transform="rotate(-15 350 200)"/>
+    <ellipse cx="850" cy="200" rx="120" ry="50" fill="#5c6e3a" transform="rotate(15 850 200)"/>
+    <ellipse cx="200" cy="150" rx="80" ry="35" fill="#7a8f4e" transform="rotate(-30 200 150)"/>
+    <ellipse cx="1000" cy="250" rx="80" ry="35" fill="#7a8f4e" transform="rotate(30 1000 250)"/>
+  </svg>
+
+  <div class="footer-wreath">🌿</div>
+  <div class="footer-script">Jen & Junior</div>
+  <div class="footer-date">22 · May · 2026 · Pampanga</div>
+  <div class="footer-floral-row">🌸 🌿 🌺 🍃 🌷 🌼 🌻 🌿 🌸</div>
+  <div class="footer-verse">
+    "Two are better than one, because they have<br>
+    a good return for their labor."<br>
+    — Ecclesiastes 4:9
+  </div>
+  <div class="footer-line"></div>
+  <div class="footer-brand">Love &amp; Crafts · Digital Wedding Invitations</div>
+</footer>
+
+<script>
+
+/* ==========================================
+   💌 MAGICAL ENVELOPE LOGIC
+   ========================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const overlay = document.getElementById('magic-envelope-overlay');
+  const envelope = document.querySelector('.magic-envelope');
+
+  if (overlay && envelope) {
+    envelope.addEventListener('click', () => {
+      // 1. Play the flap and wax seal animation
+      envelope.classList.add('is-opening');
+
+      // 2. Generate a burst of garden magic (leaves, sparkles, flowers)
+      const motifs = ['✨', '✿', '🌿', '🌸'];
+      const colors = ['#e8d099', '#fae8e3', '#d6e4b0'];
+      
+      for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'env-particle';
+        particle.innerText = motifs[Math.floor(Math.random() * motifs.length)];
+        particle.style.color = colors[Math.floor(Math.random() * colors.length)];
+        
+        // Calculate random explosion directions
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 180 + 60; // How far they shoot out
+        particle.style.setProperty('--tx', `${Math.cos(angle) * distance}px`);
+        particle.style.setProperty('--ty', `${Math.sin(angle) * distance - 60}px`);
+        
+        particle.style.left = '50%';
+        particle.style.top = '50%';
+        envelope.appendChild(particle);
+      }
+
+      // 3. Wait 1.2 seconds for the envelope to open, then fade out the screen
+      setTimeout(() => {
+        overlay.classList.add('opened');
+        
+        // 4. Remove it completely from the code so it doesn't block scrolling
+        setTimeout(() => overlay.remove(), 1500); 
+      }, 1200); 
+      
+    }, { once: true }); // Ensure it can only be clicked once
+  }
+});
+/* ════════════════════════════════
+   MUSIC
+════════════════════════════════ */
+const audio = document.getElementById('bgMusic');
+const btn   = document.getElementById('musicBtn');
+const eq    = document.getElementById('eqBars');
+let playing = false;
+
+function tryPlay(){
+  audio.volume = 0.4;
+  audio.play().then(()=>{
+    playing=true; btn.textContent='⏸'; eq.classList.remove('paused');
+  }).catch(()=>{
+    btn.textContent='▶'; eq.classList.add('paused');
+  });
+}
+
+window.addEventListener('load', tryPlay);
+document.addEventListener('click',function h(){if(!playing)tryPlay();document.removeEventListener('click',h)},{once:true});
+
+btn.addEventListener('click',()=>{
+  if(playing){audio.pause();playing=false;btn.textContent='▶';eq.classList.add('paused')}
+  else{audio.play();playing=true;btn.textContent='⏸';eq.classList.remove('paused')}
+});
+
+/* ════════════════════════════════
+   HERO PHOTO SLIDESHOW
+════════════════════════════════ */
+(function heroSlideshow(){
+  const slides = document.querySelectorAll('.hero-slide');
+  if(!slides.length) return;
+  let current = 0;
+  function loadSlide(slide){
+    var bg = slide.getAttribute('data-bg');
+    if(bg){
+      slide.style.backgroundImage = "url('" + bg + "')";
+      slide.removeAttribute('data-bg');
+    }
+  }
+  // Preload next slide before it appears
+  function preloadNext(){
+    var next = (current + 1) % slides.length;
+    loadSlide(slides[next]);
+  }
+  preloadNext();
+  setInterval(function(){
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+    preloadNext();
+  }, 4500);
+})();
+
+/* ════════════════════════════════
+   FALLING PETALS
+════════════════════════════════ */
+(function spawnPetals(){
+  const hero = document.getElementById('hero');
+  const cols=['#c4857a','#d6e4b0','#c9a96e','#afc17a','#f0d5cc','#dfc896'];
+  for(let i=0;i<26;i++){
+    const p=document.createElement('div');
+    p.className='petal';
+    const s=6+Math.random()*14;
+    const dur=12+Math.random()*18;
+    const del=Math.random()*18;
+    const col=cols[Math.floor(Math.random()*cols.length)];
+    p.style.cssText=`width:${s}px;height:${s*.55}px;left:${Math.random()*100}%;top:-40px;background:${col};opacity:0;animation:petalFall ${dur}s ease ${del}s infinite;`;
+    hero.appendChild(p);
+  }
+})();
+
+/* ════════════════════════════════
+   COUNTDOWN
+════════════════════════════════ */
+const wedding=new Date('2026-05-22T14:30:00+08:00');
+function p(n){return String(n).padStart(2,'0')}
+function tick(){
+  const now=new Date(), diff=wedding-now;
+  if(diff<=0){['cd-d','cd-h','cd-m','cd-s'].forEach(id=>document.getElementById(id).textContent='00');return}
+  document.getElementById('cd-d').textContent=p(Math.floor(diff/86400000));
+  document.getElementById('cd-h').textContent=p(Math.floor(diff%86400000/3600000));
+  document.getElementById('cd-m').textContent=p(Math.floor(diff%3600000/60000));
+  document.getElementById('cd-s').textContent=p(Math.floor(diff%60000/1000));
+}
+tick(); setInterval(tick,1000);
+
+/* ════════════════════════════════
+   PHOTO STRIPS — seamless infinite loop on all screens.
+   Cards are cloned enough times so the track is always
+   wider than 2x the viewport — no gap or jump on mobile.
+════════════════════════════════ */
+(function ensureStripLoop(){
+  document.querySelectorAll('.strip-track').forEach(function(track){
+    var origCards = Array.from(track.children);
+    if(!origCards.length) return;
+    function fill(){
+      track.querySelectorAll('.strip-clone').forEach(function(el){ el.remove(); });
+      var setWidth = origCards.reduce(function(sum,el){ return sum + el.offsetWidth + 14; }, 0);
+      if(setWidth === 0){ setTimeout(fill, 150); return; }
+      var copies = Math.max(Math.ceil((window.innerWidth * 4) / setWidth), 2);
+      for(var c = 0; c < copies; c++){
+        origCards.forEach(function(card){
+          var clone = card.cloneNode(true);
+          clone.classList.add('strip-clone');
+          track.appendChild(clone);
+        });
+      }
+    }
+    requestAnimationFrame(function(){ setTimeout(fill, 120); });
+    window.addEventListener('resize', fill);
+  });
+})();
+
+/* ════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════ */
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}});
+},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+
+</script>
+
+
+<script>
+
+
+
+<!-- ── AUTO QR UPDATE: change href on .venue-btn → QR regenerates automatically ── -->
+<script>
+(function autoQR(){
+  /* 
+   * HOW TO UPDATE YOUR QR CODES:
+   * Just change the href on the "Get Directions" <a> buttons.
+   * This script reads those links and regenerates the QR images automatically.
+   * Uses the free QR API — works instantly, no library needed.
+   */
+  function loadQR(imgId, btnSelector) {
+    var btn = document.querySelector(btnSelector);
+    if (!btn) return;
+    var url = btn.getAttribute('href');
+    if (!url || url === '#') return; // skip placeholder links
+    var img = document.getElementById(imgId);
+    if (!img) return;
+    // Use QR Server API — free, reliable, no signup
+    var encoded = encodeURIComponent(url);
+    img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&color=3b4724&bgcolor=fdf7ec&ecc=H&data=' + encoded;
+    img.style.width  = '150px';
+    img.style.height = '150px';
+  }
+
+  function init() {
+    loadQR('qr-ceremony',  '.venue-card.rv.d1 .venue-btn');
+    loadQR('qr-reception', '.venue-card.rv.d2 .venue-btn');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+<script>
+/* ── MOBILE FLOWER NAV ── */
+(function(){
+  var btn  = document.getElementById('navFlowerBtn');
+  var menu = document.getElementById('navMobileMenu');
+  if(!btn || !menu) return;
+
+  function openMobileNav(){
+    menu.style.display = 'flex';
+    menu.getBoundingClientRect(); // force reflow so transition fires
+    menu.classList.add('open');
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    menu.setAttribute('aria-hidden','false');
+  }
+
+  window.closeMobileNav = function(){
+    menu.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    menu.setAttribute('aria-hidden','true');
+    setTimeout(function(){ if(!menu.classList.contains('open')) menu.style.display='none'; }, 320);
+  };
+
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    menu.classList.contains('open') ? closeMobileNav() : openMobileNav();
+  });
+
+  document.addEventListener('click', function(e){
+    if(menu.classList.contains('open') && !menu.contains(e.target) && e.target !== btn){
+      closeMobileNav();
+    }
+  });
+})();
+</script>
+</body>
+</html>
